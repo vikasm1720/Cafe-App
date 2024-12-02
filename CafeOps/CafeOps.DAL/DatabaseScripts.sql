@@ -37,10 +37,9 @@ REFERENCES Cafes(Id) ON DELETE SET NULL;
 INSERT INTO Cafes (Id, Name, Description, Logo, Location)
 VALUES	
     (NEWID(), 'Third Wave Coffee', 'we make coffee an experience every step of the way', NULL, 'Bangalore'),
-	(NEWID(), 'Baristart Coffee', 'A Hokkaido-based concept cafe that specializes in using Hokkaido BIEI Jersey Milk for our coffee', NULL, 'Singapore');
+	(NEWID(), 'Baristart Coffee', 'A Hokkaido-based concept cafe that specializes in using Hokkaido BIEI Jersey Milk for our coffee', NULL, 'Singapore'),
     (NEWID(), 'Central Perk', 'A cozy coffee house in the heart of the city', NULL, 'Bangalore'),
-    (NEWID(), 'Java Cafe', 'Best coffee blends in town', NULL, 'Singapore'),	
-    
+    (NEWID(), 'Java Cafe', 'Best coffee blends in town', NULL, 'Singapore'),
     (NEWID(), 'Bistro 101', 'A quiet spot for your daily grind', NULL, 'Boston');
 
 -- Add seed data to Employees
@@ -53,5 +52,5 @@ VALUES
 	('UIA12C3X4', 'Amy Jackson', 'amy@example.com', '87234567', 'Female',(SELECT Id FROM Cafes WHERE Name = 'Bistro 101'), '2024-11-06'),
 	('UIV34C2X2', 'Robert Redford', 'robert@example.com', '98734567', 'Male',(SELECT Id FROM Cafes WHERE Name = 'Bistro 101'), '2023-12-01'),
 	('UICAEAD23', 'Abhay S', 'abhay_s@example.com', '88834567', 'Male',(SELECT Id FROM Cafes WHERE Name = 'Third Wave Coffee'), '2021-10-05'),
-	('UIBLR0068', 'Alisa lee', 'alisa@example.com', '99934567', 'Female',(SELECT Id FROM Cafes WHERE Name = 'Baristart Coffee'), '2024-11-06'),
-	('UICHN1VM1', 'Ryan Ali', 'ryan@example.com', '98984567', 'Male',(SELECT Id FROM Cafes WHERE Name = 'Java Cafe'), '2023-12-01');
+	('UIBLR06A8', 'Alisa lee', 'alisa@example.com', '99934567', 'Female',(SELECT Id FROM Cafes WHERE Name = 'Baristart Coffee'), '2024-11-06'),
+	('UICHN1234', 'Ryan Ali', 'ryan@example.com', '98984567', 'Male',(SELECT Id FROM Cafes WHERE Name = 'Java Cafe'), '2023-12-01');
