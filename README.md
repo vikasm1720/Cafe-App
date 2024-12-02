@@ -16,8 +16,9 @@ A full-stack application to manage cafés and their employees, built using **.NE
     - Run the database script:
     - Navigate to CafeOps/CafeOps.DAL/DatabaseScripts.sql.
     - Execute the script in SQL Server to create the required database and tables.
-    - Open the CafeOps solution in Visual Studio and build the project.
-    - Run the solution to start the backend server. The Swagger UI should open automatically in a browser window. Keep this browser instance running.
+    - Open the CafeOps solution in Visual Studio.
+    - Update SQL server connection string in CafeOps/CafeOps.API/appsettings.Development.json
+    - Build the project and run the solution to start the backend server. The Swagger UI should open automatically in a browser window. Keep this browser instance running.
 
 3. CafeApp: front end implementation.
     - Open a terminal, cmd, git bash or VS code. Navigate to cafeapp folder. 
