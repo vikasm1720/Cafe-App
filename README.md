@@ -21,8 +21,8 @@ A full-stack application to manage cafés and their employees, built using **.NE
 
 3. CafeApp: front end implementation.
     - Open a terminal, cmd, git bash or VS code. Navigate to cafeapp folder. 
-    - **_Run NPM Install_** to install the required Node.js modules.
-    - **_Run NPM_** To Start run the react app.
+    - **_Run NPM install_** to install the required Node.js modules.
+    - **_Run NPM start_** To Start run the react app.
     - On successful setup, you should see a landing page with buttons as per the requirements.
 
 4. If required to change the port number then please update the port number in following place.
