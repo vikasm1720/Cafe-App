@@ -23,6 +23,16 @@ var conString = builder.Configuration.GetConnectionString("DefaultConnection") ?
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(conString));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.AllowAnyOrigin() // Allow all origins
+              .AllowAnyHeader()
+              .AllowAnyMethod(); // Allows all HTTP methods (GET, POST, etc.)
+    });
+});
+
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(container =>
 {
@@ -38,6 +48,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(container =>
              .AsImplementedInterfaces();
 });
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -47,6 +58,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Use CORS middleware
+app.UseCors("AllowReactApp");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

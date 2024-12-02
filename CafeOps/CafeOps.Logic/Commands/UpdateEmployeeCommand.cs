@@ -4,7 +4,7 @@ using MediatR;
 
 namespace CafeOps.Logic
 {
-    public record UpdateEmployeeCommand(string Id, string Name, string EmailAddress, string PhoneNumber, string Gender, DateTime StartDate, Guid? AssignedCafeId) : IRequest<Unit>;
+    public record UpdateEmployeeCommand(string Id, string Name, string EmailAddress, string PhoneNumber, string Gender, DateTime StartDate, Guid? CafeId) : IRequest<Unit>;
     public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeCommand, Unit>
     {
         private readonly IEmployeeRepository _employeeRepository;
@@ -25,13 +25,13 @@ namespace CafeOps.Logic
                 throw new KeyNotFoundException($"Employee with ID '{request.Id}' not found.");
             }
 
-            var cafe = request.AssignedCafeId != null
-                ? await _cafeRepository.GetByIdAsync(request.AssignedCafeId)
+            var cafe = request.CafeId != null
+                ? await _cafeRepository.GetByIdAsync(request.CafeId)
                 : null;
 
-            if (request.AssignedCafeId != null && cafe == null)
+            if (request.CafeId != null && cafe == null)
             {
-                throw new KeyNotFoundException($"Cafe with ID '{request.AssignedCafeId}' not found.");
+                throw new KeyNotFoundException($"Cafe with ID '{request.CafeId}' not found.");
             }
 
             employee.Name = request.Name;
@@ -39,7 +39,7 @@ namespace CafeOps.Logic
             employee.PhoneNumber = request.PhoneNumber;
             employee.Gender = request.Gender;
             employee.StartDate = request.StartDate;
-            employee.CafeId = request.AssignedCafeId;
+            employee.CafeId = request.CafeId;
 
             await _employeeRepository.UpdateAsync(employee);
             return Unit.Value;

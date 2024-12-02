@@ -1,4 +1,5 @@
 ﻿using CafeOps.DAL;
+using CafeOps.DAL.Entities;
 using CafeOps.Logic.Dtos;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -37,7 +38,9 @@ namespace CafeOps.Logic
                     EmailAddress = e.EmailAddress,
                     PhoneNumber = e.PhoneNumber,
                     DaysWorked = EF.Functions.DateDiffDay(e.StartDate, DateTime.Now),
-                    Cafe = e.Cafe != null ? e.Cafe.Name : string.Empty
+                    CafeId = e.Cafe != null ? e.Cafe.Id : null,
+                    Cafe= e.Cafe != null ? e.Cafe.Name : null,
+                    StartDate= e.StartDate.ToString("yyyy-MM-dd"),
                 })
                 .OrderByDescending(e => e.DaysWorked) 
                 .ToListAsync(cancellationToken);
