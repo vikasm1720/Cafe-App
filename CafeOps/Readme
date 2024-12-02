@@ -1,0 +1,5 @@
+Database validation: 
+Currently to valid phone number and gender i am doing it in database, 
+ideal scenarion would be to do the validation in code both in front end as well as backend
+
+Location: Bangalore, Boston, Singapore

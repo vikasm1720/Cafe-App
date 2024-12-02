@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CafeOps/.vs/CafeOps
+/CafeOps/*/bin/*
+/CafeOps/*/obj/*
